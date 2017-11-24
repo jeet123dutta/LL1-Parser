@@ -1,0 +1,19 @@
+<program>	::=	"main" "(" ")" "{" <statements> "}"
+<datatypes>	::=	"int" | "float" | "void"
+<block>	::=	"{" <statements> "}"
+<statements>	::=	<statements> <astatement> | <astatement>
+<astatement>	::=	<declaration> ";" | <assignment> ";" | <ifstruct> | <forstruct> | <readstruct> | <writestruct>
+<declaration>	::=	<datatypes> "identifiers"
+<assignment>	::=	"identifiers" "=" <expression>
+<ifstruct>	::=	"if" "(" <expression> ")" <block> <elsestruct>
+<elsestruct>	::=	"else" <block> | Epsilon
+<forstruct>	::=	"for" "(" "identifiers" "=" <expression> ";" "identifiers" "<" <expression> ";" "identifiers" "=" <expression> ")" <block>
+<expression>	::=	<subexpression>
+<relop>	::=	"<" | ">"
+<subexpression>	::=	<subexpression> <additive> <term> | <term>
+<additive>	::=	"+" | "-"
+<term>	::=	<term> <multiplicative> <factor> | <term> <relop> <factor> | <factor>
+<multiplicative>	::=	"*" | "/"
+<factor>	::=	"(" <subexpression> ")" | "identifiers" | "numbers"
+<readstruct>	::=	"read" "(" "identifiers" ")" ";"
+<writestruct>	::=	"write" "(" "identifiers" ")" ";"
